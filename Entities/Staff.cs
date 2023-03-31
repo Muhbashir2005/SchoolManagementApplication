@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementApplication.Entities
 {
-    public class Staff : BaseEntity
+    public abstract class Staff : BaseEntity
     {
         public string Email { get; set; }
         public Role Role { get; set; }

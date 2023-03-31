@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementApplication.Entities
 {
-    public class Teacher : BaseEntity
+    public class Teacher : BaseEntity 
     {
         public string Email { get; set; }
         public int DepartmentID { get; set; }
