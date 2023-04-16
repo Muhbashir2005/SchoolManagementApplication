@@ -2,7 +2,7 @@
 
 namespace SchoolManagementApplication.Repository.Interfaces
 {
-    public class IAnnouncementRepository : IRepository<Announcement>
+    public interface IAnnouncementRepository : IRepository<Announcement>
     {
     }
 }

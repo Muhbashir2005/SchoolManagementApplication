@@ -2,7 +2,7 @@
 
 namespace SchoolManagementApplication.Repository.Interfaces
 {
-    public interface IDepartmentRepository IRepository<Department>
+    public interface IDepartmentRepository : IRepository<Department>
     {
     }
 }

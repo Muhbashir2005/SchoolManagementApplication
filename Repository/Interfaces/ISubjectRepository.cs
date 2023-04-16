@@ -2,7 +2,7 @@
 
 namespace SchoolManagementApplication.Repository.Interfaces
 {
-    public class ISubjectRepository : IRepository<Subject>
+    public interface ISubjectRepository : IRepository<Subject>
     {
     }
 }

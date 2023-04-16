@@ -3,7 +3,7 @@ using SchoolManagementApplication.Repository.Interfaces;
 
 namespace SchoolManagementApplication.Repository.Implementations
 {
-    public class StaffRepository : BaseRepository<Staff>, IStaffRepository
+    public class RoleRepository : BaseRepository<Role>, IRoleRepository
     {
     }
 }
