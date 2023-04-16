@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iKMmWAm1eVGZoFCHEuwA8URRFdAFmORkzhZvLRNTd8nRwIGo2uXDmrQmQy7wFJJN6kYPQd6LZsfo3UR+BLreLQ==",
+  "dgSpecHash": "Nu+vA7mTLzJ3xm2SFOcioDkuSdY/30ODhG35LnXbMWu6GzjmEa9YveovO7no62fd68GUJ3+9s8GLu+5JVeWnmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\my\\Documents\\C#Projects\\SchoolManagementApplication\\SchoolManagementApplication.csproj",
+  "projectFilePath": "C:\\Users\\my\\Documents\\GitHub\\SchoolManagementApplication\\SchoolManagementApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\my\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\my\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

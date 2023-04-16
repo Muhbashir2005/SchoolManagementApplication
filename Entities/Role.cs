@@ -3,7 +3,7 @@
     public class Role : BaseEntity
     {
         public string Description { get; set; }
-        public ICollection<Staff> Staffs { get; set; } = new HashSet<Staff>();
-        public DateTime CreatedOn { get; set; }
+        public ICollection<Users> Staffs { get; set; } = new HashSet<Staff>();
+        public DateTime DateCreated { get; set; }
     }
 }

@@ -2254,19 +2254,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\my\\.nuget\\packages\\": {}
+    "C:\\Users\\my\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\my\\Documents\\C#Projects\\SchoolManagementApplication\\SchoolManagementApplication.csproj",
+      "projectUniqueName": "C:\\Users\\my\\Documents\\GitHub\\SchoolManagementApplication\\SchoolManagementApplication.csproj",
       "projectName": "SchoolManagementApplication",
-      "projectPath": "C:\\Users\\my\\Documents\\C#Projects\\SchoolManagementApplication\\SchoolManagementApplication.csproj",
+      "projectPath": "C:\\Users\\my\\Documents\\GitHub\\SchoolManagementApplication\\SchoolManagementApplication.csproj",
       "packagesPath": "C:\\Users\\my\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\my\\Documents\\C#Projects\\SchoolManagementApplication\\obj\\",
+      "outputPath": "C:\\Users\\my\\Documents\\GitHub\\SchoolManagementApplication\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\my\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2326,7 +2331,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
