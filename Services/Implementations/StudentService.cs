@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementApplication.Services.Implementations
 {
-    public class QuestionService
+    public class StudentService
     {
     }
 }

@@ -7,7 +7,7 @@ namespace SchoolManagementApplication.Context
         public SchoolDBContext(DbContextOptions<SchoolDBContext> options) : base(options)
         {
         }
-        public DbSet<Classes> Classes { get; set; }
+        public DbSet<Class> Classes { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Staff> Staffs { get; set; }

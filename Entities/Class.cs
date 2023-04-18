@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementApplication.Entities
 {
-    public class Classes : BaseEntity
+    public class Class : BaseEntity
     {
         public ICollection<Student> Students { get; set; } = new HashSet<Student>();
         public int DepartmentId { get; set; }
