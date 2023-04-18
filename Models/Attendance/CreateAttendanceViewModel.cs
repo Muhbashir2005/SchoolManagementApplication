@@ -1,6 +1,6 @@
-﻿namespace SchoolManagementApplication.Entities
+﻿namespace SchoolManagementApplication.Models.Attendance
 {
-    public class Attendance : BaseEntity
+    public class CreateAttendanceViewModel
     {
         public int StudentId { get; set; }
         public DateTime DateCreated { get; set; }

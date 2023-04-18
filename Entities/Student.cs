@@ -9,5 +9,6 @@
         public string ParentPhoneNumber { get; set; }
         public int DepartmentId { get; set; }
         public ICollection<Subject> Subjects { get; set; } = new HashSet<Subject>();
+        public ICollection<TermlyReport> Reports { get; set; }
     }
 }
