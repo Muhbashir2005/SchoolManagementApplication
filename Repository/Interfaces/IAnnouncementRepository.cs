@@ -1,4 +1,6 @@
 ﻿using SchoolManagementApplication.Entities;
+using SchoolManagementApplication.Models;
+using SchoolManagementApplication.Models.Announcement;
 
 namespace SchoolManagementApplication.Repository.Interfaces
 {

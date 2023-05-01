@@ -1,5 +1,6 @@
 ﻿namespace SchoolManagementApplication.Repository.Interfaces
 {
+    //IDisposable not fully understood
     public interface IUnitOfWork : IDisposable
     {
         IAnnouncementRepository Announcement { get; }
@@ -11,7 +12,7 @@
         IStudentRepository Student { get; }
         ISubjectRepository Subject { get; }
         ITeacherRepository Teacher { get; }
-        ITermlyReportRepository TearmlyReport { get; }
+        ITermlyReportRepository TermlyReport { get; }
         int SaveChanges();
     }
 }

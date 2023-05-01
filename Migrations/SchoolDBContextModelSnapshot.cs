@@ -19,7 +19,7 @@ namespace SchoolManagementApplication.Migrations
                 .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("ClassesSubject", b =>
+            modelBuilder.Entity("ClassSubject", b =>
                 {
                     b.Property<int>("ClassesId")
                         .HasColumnType("int");
@@ -31,10 +31,10 @@ namespace SchoolManagementApplication.Migrations
 
                     b.HasIndex("SubjectsId");
 
-                    b.ToTable("ClassesSubject");
+                    b.ToTable("ClassSubject");
                 });
 
-            modelBuilder.Entity("ClassesTeacher", b =>
+            modelBuilder.Entity("ClassTeacher", b =>
                 {
                     b.Property<int>("ClassesTaughtId")
                         .HasColumnType("int");
@@ -46,7 +46,7 @@ namespace SchoolManagementApplication.Migrations
 
                     b.HasIndex("TeachersId");
 
-                    b.ToTable("ClassesTeacher");
+                    b.ToTable("ClassTeacher");
                 });
 
             modelBuilder.Entity("SchoolManagementApplication.Entities.Announcement", b =>
@@ -61,10 +61,10 @@ namespace SchoolManagementApplication.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -78,11 +78,17 @@ namespace SchoolManagementApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsPresent")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
@@ -92,14 +98,23 @@ namespace SchoolManagementApplication.Migrations
                     b.ToTable("Attendances");
                 });
 
-            modelBuilder.Entity("SchoolManagementApplication.Entities.Classes", b =>
+            modelBuilder.Entity("SchoolManagementApplication.Entities.Class", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
@@ -166,6 +181,8 @@ namespace SchoolManagementApplication.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentId");
+
                     b.HasIndex("StudentId");
 
                     b.ToTable("Subjects");
@@ -221,6 +238,8 @@ namespace SchoolManagementApplication.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Reports");
                 });
@@ -303,9 +322,6 @@ namespace SchoolManagementApplication.Migrations
                     b.Property<int>("ClassId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ClassesId")
-                        .HasColumnType("int");
-
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
@@ -318,16 +334,16 @@ namespace SchoolManagementApplication.Migrations
                     b.Property<string>("ParentPhoneNumber")
                         .HasColumnType("longtext");
 
-                    b.HasIndex("ClassesId");
+                    b.HasIndex("ClassId");
 
                     b.HasIndex("DepartmentId");
 
                     b.HasDiscriminator().HasValue("Student");
                 });
 
-            modelBuilder.Entity("ClassesSubject", b =>
+            modelBuilder.Entity("ClassSubject", b =>
                 {
-                    b.HasOne("SchoolManagementApplication.Entities.Classes", null)
+                    b.HasOne("SchoolManagementApplication.Entities.Class", null)
                         .WithMany()
                         .HasForeignKey("ClassesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -340,9 +356,9 @@ namespace SchoolManagementApplication.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ClassesTeacher", b =>
+            modelBuilder.Entity("ClassTeacher", b =>
                 {
-                    b.HasOne("SchoolManagementApplication.Entities.Classes", null)
+                    b.HasOne("SchoolManagementApplication.Entities.Class", null)
                         .WithMany()
                         .HasForeignKey("ClassesTaughtId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -357,6 +373,12 @@ namespace SchoolManagementApplication.Migrations
 
             modelBuilder.Entity("SchoolManagementApplication.Entities.Subject", b =>
                 {
+                    b.HasOne("SchoolManagementApplication.Entities.Department", null)
+                        .WithMany("Subjects")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolManagementApplication.Entities.Student", null)
                         .WithMany("Subjects")
                         .HasForeignKey("StudentId");
@@ -367,6 +389,15 @@ namespace SchoolManagementApplication.Migrations
                     b.HasOne("SchoolManagementApplication.Entities.Department", null)
                         .WithMany("Teachers")
                         .HasForeignKey("DepartmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SchoolManagementApplication.Entities.TermlyReport", b =>
+                {
+                    b.HasOne("SchoolManagementApplication.Entities.Student", null)
+                        .WithMany("Reports")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -397,9 +428,11 @@ namespace SchoolManagementApplication.Migrations
 
             modelBuilder.Entity("SchoolManagementApplication.Entities.Student", b =>
                 {
-                    b.HasOne("SchoolManagementApplication.Entities.Classes", null)
+                    b.HasOne("SchoolManagementApplication.Entities.Class", null)
                         .WithMany("Students")
-                        .HasForeignKey("ClassesId");
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SchoolManagementApplication.Entities.Department", null)
                         .WithMany("Students")
@@ -408,7 +441,7 @@ namespace SchoolManagementApplication.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SchoolManagementApplication.Entities.Classes", b =>
+            modelBuilder.Entity("SchoolManagementApplication.Entities.Class", b =>
                 {
                     b.Navigation("Students");
                 });
@@ -416,6 +449,8 @@ namespace SchoolManagementApplication.Migrations
             modelBuilder.Entity("SchoolManagementApplication.Entities.Department", b =>
                 {
                     b.Navigation("Students");
+
+                    b.Navigation("Subjects");
 
                     b.Navigation("Teachers");
                 });
@@ -427,6 +462,8 @@ namespace SchoolManagementApplication.Migrations
 
             modelBuilder.Entity("SchoolManagementApplication.Entities.Student", b =>
                 {
+                    b.Navigation("Reports");
+
                     b.Navigation("Subjects");
                 });
 #pragma warning restore 612, 618
